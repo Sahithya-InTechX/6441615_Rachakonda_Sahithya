@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DevTools Debugging Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: lightgray;
+      text-align: center;
+      padding: 50px;
+    }
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      margin: 0 auto;
+      border: 3px solid navy;
+      line-height: 200px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Debugging with Chrome DevTools</h1>
+  <div class="box">Hover to Inspect</div>
+  <button onclick="testDebugging()">Click to Debug</button>
+
+  <script>
+    console.log('Page has loaded successfully');
+
+    function testDebugging() {
+      console.log('Debugging started...');
+      let a = 5;
+      let b = 0;
+
+      // Try modifying these values in DevTools to test breakpoints
+      let c = a / b; // Will result in Infinity, not error
+      console.log('Value of c:', c);
+
+      // Intentional error for Console test
+      try {
+        nonExistentFunction(); // This will throw ReferenceError
+      } catch (error) {
+        console.error('Caught an error:', error.message);
+      }
+
+      let user = {
+        name: "John Doe",
+        role: "Guest",
+        loggedIn: false
+      };
+
+      console.log('User Info:', user);
+    }
+  </script>
+</body>
+</html>
